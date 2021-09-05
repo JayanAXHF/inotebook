@@ -1,6 +1,8 @@
 const express = require("express");
+// Models are middleware
 const User = require("../models/User");
 const fetchuser = require("../middleware/fetchuser");
+// Router
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
