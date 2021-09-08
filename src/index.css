@@ -24,3 +24,7 @@ i {
 #tag:empty {
   color: #fff;
 }
+
+.login-signup {
+  height: fit-content;
+}

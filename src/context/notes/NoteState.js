@@ -38,6 +38,7 @@ const NoteState = (props) => {
 
     const note = await response.json();
     setNotes(notes.concat(note));
+    console.log(note);
   };
 
   // Delete a Note
@@ -52,7 +53,10 @@ const NoteState = (props) => {
       },
     });
     const json = await response.json();
-    console.log("file: NoteState.js ~ line 55 ~ deleteNote ~ json", json);
+    console.log(
+      "file: NoteState.js ~ line 55 ~ deleteNote ~ Delete Note :",
+      json
+    );
     const newNotes = notes.filter((note) => {
       return note._id !== id;
     });

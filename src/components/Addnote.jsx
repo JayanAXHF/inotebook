@@ -41,6 +41,7 @@ const Addnote = () => {
               aria-describedby="emailHelp"
               name="title"
               onChange={onChange}
+              value={note.title}
             />
           </div>
           <div className="mb-3">
@@ -52,6 +53,19 @@ const Addnote = () => {
               className="form-control"
               name="description"
               onChange={onChange}
+              value={note.description}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="tag" className="form-label">
+              Tag
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="tag"
+              onChange={onChange}
+              value={note.tag}
             />
           </div>
           <button

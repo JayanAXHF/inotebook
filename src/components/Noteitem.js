@@ -35,7 +35,7 @@ const Noteitem = (props) => {
               </p>
             ) : (
               ""
-            )}{" "}
+            )}
           </span>
         </div>
       </div>

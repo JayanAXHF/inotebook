@@ -24,11 +24,14 @@ router.post(
   ],
 
   async (req, res) => {
+    let success = false;
+
     //* If there are errors return err(400)
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: `${errors.array()} err 400 Bad request`,
+        success,
       });
     }
     try {
@@ -39,6 +42,7 @@ router.post(
       console.log(user);
       if (user) {
         return res.status(400).json({
+          success,
           error: "no-dupe-emails",
         });
       }
@@ -58,9 +62,10 @@ router.post(
       };
 
       const authToken = jwt.sign(data, JWT_SECRET);
-
+      success = true;
       res.json({
         "Auth Token": `${authToken}, 200 OK`,
+        success: success,
       });
     } catch (error) {
       console.log(error.message);
@@ -93,14 +98,17 @@ router.post(
         email,
       });
       if (!user) {
+        const success = false;
+
         return res.status(400).json({
-          error: "Please login with correct credentials",
+          error: `${success} Please login with correct credentials`,
         });
       }
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
+        const success = false;
         return res.status(400).json({
-          error: "Please login with correct credentials",
+          error: `success:${success} Please login with correct credentials`,
         });
       }
       const data = {
@@ -109,9 +117,10 @@ router.post(
         },
       };
       const authToken = jwt.sign(data, JWT_SECRET);
-
+      const success = true;
       res.json({
-        "Auth Token": `${authToken}, 200 OK`,
+        success: `${success}`,
+        "Auth Token": ` ,${authToken}, 200 OK `,
       });
     } catch (error) {
       console.log(error.message);
