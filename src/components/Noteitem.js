@@ -29,9 +29,13 @@ const Noteitem = (props) => {
           <span className="desc-tag">
             {" "}
             <p className="card-text">{note.description}</p>{" "}
-            <p className="card-text" id="tag">
-              Tag: {note.tag}
-            </p>{" "}
+            {note.tag !== "" ? (
+              <p className="card-text" id="tag">
+                Tag: {note.tag}
+              </p>
+            ) : (
+              ""
+            )}{" "}
           </span>
         </div>
       </div>
