@@ -9,12 +9,16 @@ const Addnote = () => {
   const [note, setNote] = useState({
     title: "",
     description: "",
-    tag: "default",
+    tag: "",
   });
 
   const handleClick = (e) => {
+    // e.preventDefault();
+    // addNote(note.title, note.description, note.tag);
+
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
+    setNote({ title: "", description: "", tag: "" });
   };
 
   const onChange = (e) => {
@@ -54,6 +58,7 @@ const Addnote = () => {
             type="submit"
             className="btn bg-dark hi"
             onClick={handleClick}
+            disabled={note.title.length < 5 || note.description.length < 5}
           >
             Add Note
           </button>

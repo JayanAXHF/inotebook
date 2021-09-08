@@ -19,7 +19,7 @@ router.get("/fetchallnotes", fetchuser, async (req, res) => {
     res.json(notes);
   } catch (error) {
     console.log(error.message);
-    res.status(500).send("Internal Server Error ");
+    res.status(500).send("Internal Server Error");
   }
 });
 // Route to Add a new note using POST "api/notes/addnote" Login Required
@@ -73,7 +73,7 @@ router.put(
 
       //Todo  Create a newMote object
 
-      const newNote = {};
+      const newNote = note;
 
       if (title) {
         newNote.title = title;
