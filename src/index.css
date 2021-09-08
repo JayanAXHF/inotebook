@@ -17,3 +17,10 @@ i {
 #id {
   justify-content: center;
 }
+
+.desc-tags {
+  display: inline-block;
+}
+#tag:empty {
+  color: #fff;
+}

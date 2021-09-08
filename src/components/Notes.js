@@ -27,7 +27,7 @@ const Notes = () => {
       edescription: currentNote.description,
       etag: currentNote.tag,
     });
-    console.log(currentNote);
+    console.log(note);
   };
 
   const handleClick = (e) => {

@@ -26,7 +26,13 @@ const Noteitem = (props) => {
               }}
             ></i>
           </h5>
-          <p className="card-text">{note.description}</p>
+          <span className="desc-tag">
+            {" "}
+            <p className="card-text">{note.description}</p>{" "}
+            <p className="card-text" id="tag">
+              Tag: {note.tag}
+            </p>{" "}
+          </span>
         </div>
       </div>
     </div>
