@@ -35,7 +35,7 @@ router.post(
       });
     }
     try {
-      //*Check for no-dupe-value
+      //*Check for no-dupe-value`
       let user = await User.findOne({
         email: req.body.email,
       });
@@ -64,7 +64,7 @@ router.post(
       const authToken = jwt.sign(data, JWT_SECRET);
       success = true;
       res.json({
-        "Auth Token": `${authToken}, 200 OK`,
+        authtoken: authToken,
         success: success,
       });
     } catch (error) {
@@ -120,7 +120,7 @@ router.post(
       const success = true;
       res.json({
         success: `${success}`,
-        "Auth Token": ` ,${authToken}, 200 OK `,
+        authtoken: authToken,
       });
     } catch (error) {
       console.log(error.message);

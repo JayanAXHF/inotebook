@@ -21,10 +21,40 @@ i {
 .desc-tags {
   display: inline-block;
 }
+
 #tag:empty {
   color: #fff;
 }
 
 .login-signup {
   height: fit-content;
+}
+
+#hallo {
+
+  text-decoration: none;
+}
+
+.signup-redirect {
+  display: inline-block;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  justify-content: center;
+  line-height: 3rem !important;
+
+
+}
+
+a {
+  color: rgb(40, 230, 230);
+  text-decoration: none;
+}
+
+#alert {
+  width: fit-content;
+  padding: auto 5px;
 }

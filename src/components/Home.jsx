@@ -1,9 +1,9 @@
 import Notes from "./Notes.js";
 
-const Home = () => {
+const Home = ({ showAlert }) => {
   return (
     <div>
-      <Notes />
+      <Notes showAlert={showAlert} />
     </div>
   );
 };

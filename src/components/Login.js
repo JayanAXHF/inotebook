@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ showAlert }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const history = useHistory();
 
@@ -24,10 +24,12 @@ const Login = () => {
 
     if (json.success) {
       // Save the auth token and redirect
-      localStorage.setItem("token", json.authToken);
+      localStorage.setItem("token", json.authtoken);
+
       history.push("/");
+      showAlert("Logged in successfully ✅", "success");
     } else {
-      alert(`Invalid Credentials`);
+      showAlert("Invalid Credentials", "danger");
     }
   };
 
@@ -36,7 +38,8 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="mt-2">
+      <h2>Login To continue to iNotes</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="input" className="form-label">
@@ -73,6 +76,12 @@ const Login = () => {
           Submit
         </button>
       </form>{" "}
+      <p className="signup-redirect my-2 ">
+        Don't have an account?{" "}
+        <Link to="/signup" id="hallo">
+          Signup Here
+        </Link>
+      </p>
     </div>
   );
 };

@@ -2,8 +2,13 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  let location = useLocation();
+  let token = localStorage.getItem("token");
 
+  let location = useLocation();
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,21 +54,36 @@ const Navbar = () => {
           </div>
         </div>
         <form className="d-flex">
-          <Link
-            className="btn btn-outline-light login-signup mx-1"
-            role="button"
-            to="/login"
-          >
-            Login
-          </Link>
-          {"     "}
-          <Link
-            className="btn btn-outline-light login-signup mx-1"
-            role="button"
-            to="/signup"
-          >
-            Signup
-          </Link>
+          {token ? (
+            <div>
+              {" "}
+              <button
+                className="btn btn-outline-light login-signup mx-1"
+                onClick={logout}
+              >
+                Signout
+              </button>
+            </div>
+          ) : (
+            <Link
+              className="btn btn-outline-light login-signup mx-1"
+              role="button"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
+          {token ? (
+            ""
+          ) : (
+            <Link
+              className="btn btn-outline-light login-signup mx-1"
+              role="button"
+              to="/signup"
+            >
+              Signup
+            </Link>
+          )}
         </form>
       </nav>
     </div>
