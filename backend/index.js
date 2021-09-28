@@ -23,5 +23,7 @@ app.get("/api.v1.signup", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`iNotebook backend listening at http://localhost:${port}`);
+  console.log(
+    `iNotebook backend listening at http://http://192.168.29.69/:${port}`
+  );
 });

@@ -58,3 +58,20 @@ a {
   width: fit-content;
   padding: auto 5px;
 }
+
+#done {
+  text-decoration: line-through;
+}
+
+.title {
+  display: inline;
+}
+
+#desc {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.copy {
+  font-size: 20px
+}

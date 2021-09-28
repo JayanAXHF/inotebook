@@ -7,10 +7,11 @@ import { useHistory } from "react-router-dom";
 const Notes = (props) => {
   const history = useHistory();
   const context = useContext(NoteContext);
-  const { notes, getNotes, editNote } = context;
+  const { notes, getNotes, editNote, getNames } = context;
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getNotes();
+      getNames();
     } else {
       history.push("/login");
     }
@@ -44,6 +45,17 @@ const Notes = (props) => {
 
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
+  };
+
+  const handleChange = (e) => {
+    let done = "";
+    let isChecked = e.target.checked;
+    if (isChecked === true) {
+      done = "done";
+    } else {
+      done = "not-done";
+    }
+    console.log(done);
   };
 
   return (
@@ -162,6 +174,7 @@ const Notes = (props) => {
               updateNote={updateNote}
               note={note}
               showAlert={props.showAlert}
+              onChange={handleChange}
             />
           );
         })}
