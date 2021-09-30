@@ -8,9 +8,19 @@ In the project directory, you can run:
 
 ### Install dependencies
 
-### to install dependencies use `npm install` and `npm run all`
+### to install dependencies use
 
-### ``` bash npm run both```
+```
+npm install
+```
+
+and
+
+```
+npm run all
+```
+
+` npm run both`
 
 Runs the app and nodemon
 
