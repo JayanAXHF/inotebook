@@ -26,7 +26,6 @@ use
 
 ```
 npm run both
-
 ```
 
 ### to run the app and nodemon
