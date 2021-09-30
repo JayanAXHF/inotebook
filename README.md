@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 ### to install dependencies use `npm install` and `npm run all`
 
-### `npm run both`
+### ``` bash npm run both```
 
 Runs the app and nodemon
 
